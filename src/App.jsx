@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-d
 import { useState, useEffect } from "react";
 import Index from "./pages/Index.jsx";
 import Login from "./pages/Login.jsx";
+import Logout from "./pages/Logout.jsx";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={isAuthenticated ? <Index /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />} />
       </Routes>
     </Router>
   );

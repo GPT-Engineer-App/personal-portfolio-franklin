@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { Box, VStack, Heading, Text, Image, Divider, Container, Link, Icon } from "@chakra-ui/react";
 import { FaWikipediaW, FaBookOpen } from "react-icons/fa";
 
@@ -35,6 +37,9 @@ const Index = () => {
           </Box>
           <Divider />
           <VStack spacing={4}>
+            <Button colorScheme="red" onClick={() => navigate("/logout")}>
+              Logout
+            </Button>
             <Heading as="h2" size="xl">
               Learn More
             </Heading>
