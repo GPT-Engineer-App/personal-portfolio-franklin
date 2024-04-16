@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token);
-  }, [isAuthenticated]);
+  }, []);
 
   return (
     <Router>
