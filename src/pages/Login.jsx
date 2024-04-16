@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Input, VStack, Text } from "@chakra-ui/react";
 
 function Login({ setIsAuthenticated }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const handleLogin = async () => {
     const response = await fetch("https://mnwefvnykbgyhbdzpleh.supabase.co/auth/v1/token?grant_type=password", {
       method: "POST",
@@ -19,6 +21,7 @@ function Login({ setIsAuthenticated }) {
       const { access_token } = await response.json();
       localStorage.setItem("token", access_token);
       setIsAuthenticated(true);
+      navigate("/");
     } else {
       alert("Login failed!");
     }
